@@ -6,11 +6,11 @@ from function import draw_time
 # Generate gradient image
 gradient = np.zeros(CANVAS_SIZE, dtype=np.uint8)
 start_color = (255, 255, 255)  # Starting color (white)
-end_color = (0, 0, 0)          # Ending color (black)
+end_color = (255, 191, 0)      
 
 for i in range(CANVAS_SIZE[1]):
     t = i / CANVAS_SIZE[1]
-    current_color = tuple(int(t * end + (1 - t) * start) for start, end in zip(start_color, end_color))
+    current_color = tuple(int(t * end + (1 - t) * start) for start, end in zip(COLORS['cyan'],COLORS['yellow']))
     gradient = cv.rectangle(gradient, (0, i), (CANVAS_SIZE[0], i + 1), current_color, -1)
 
 # Create canvas
